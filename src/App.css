@@ -1,38 +1,133 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.fileInput {
+  cursor: pointer;
+  margin: 80px auto 40px 64px !important;
+}
+
+.error {
+  margin: 16px auto 16px 64px !important;
+  color: rgb(220, 20, 60);
+}
+
+.imageToMatch {
+  display: flex;
+  align-items: center;
+}
+
+.imageToMatch h2 {
+  margin-left: 80px;
+  color: rgb(0, 158, 96);
+}
+
+@media only screen and (max-width: 600px) {
+  .imageToMatch {
+    flex-direction: column;
+  }
+
+  .imageToMatch h2 {
+    margin-left: 0px;
+  }
+}
+
+.mainContainer {
+  margin: 32px auto;
+  width: 90vw;
+}
+.imageContainer {
+  margin-top: 32px;
+  display: grid;
+  place-items: center start;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-row-gap: 32px;
+  grid-column-gap: 32px;
+}
+
+.image {
+  width: 270px;
+  height: 320px;
+  object-fit: contain;
+  overflow: hidden;
+  display: block;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  border: 3px solid rgb(0, 158, 96, 0);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.image:hover {
+  box-shadow: rgba(220, 20, 60, 0.23) 0px 10px 20px,
+    rgba(220, 20, 60, 0.3) 0px 6px 6px;
+}
+
+.selectedImage {
+  box-shadow: rgba(0, 158, 96, 0.3) 0px 10px 20px,
+    rgba(0, 158, 96, 0.5) 0px 6px 6px;
+  border: 3px solid rgb(0, 158, 96);
+}
+
+button {
+  text-transform: capitalize;
+}
+
+.btnContainer {
+  margin: 80px auto;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btnContainer button {
+  width: 200px;
+  padding: 16px 8px;
+  margin: 0 16px;
+  cursor: pointer;
+  border: 2px solid gray;
+  border-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btnContainer button:hover {
+  background-color: #fff;
+}
+
+.activeBtn {
+  background-color: #fff;
+}
+
+.submitBtnContainer {
+  margin: 80px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skipBtn {
+  background-color: transparent !important;
+  color: black !important;
+}
+
+.submitBtnContainer P {
+  margin: 0 32px;
+}
+
+.submitBtnContainer button {
+  width: 200px;
+  height: 60px;
+  background-color: rgb(0, 158, 96);
+  border: 1px solid rgb(0, 158, 96);
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.01rem;
+  cursor: pointer;
 }
