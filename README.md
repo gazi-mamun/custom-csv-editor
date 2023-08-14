@@ -11,4 +11,8 @@ This app was developed using React JS.
 
 
 | Match Image Link | Incorrect Image Format | Similar Match | No Match |
+| ---------------- | ---------------------- | ------------- | -------- |
+|         .        |           .            |        .      |     .    |
+
+***Please do not use spaces at the start or end of the titles.***
 
