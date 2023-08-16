@@ -56,6 +56,22 @@ function App() {
       skipEmptyLines: true,
       complete: (arr) => {
         setResult(arr.data);
+        for (let i = 0; i < arr.data.length; i++) {
+          const imageFormat = arr.data[i]["Incorrect Image Format"];
+          const similarMatch = arr.data[i]["Similar Match"];
+          const noMatch = arr.data[i]["No Match"];
+          if (
+            (imageFormat === "0" || imageFormat === "1") &&
+            (similarMatch === "0" || similarMatch === "1") &&
+            (noMatch === "0" || noMatch === "1")
+          ) {
+            console.log("edited");
+            const newId = i + 1;
+            setId(newId.toString());
+          } else {
+            break;
+          }
+        }
       },
     });
   };
@@ -213,12 +229,12 @@ function App() {
                   onClick={() => handleClick(result[id]["Image 9"])}
                 />
                 <img
-                  src={result[id]["10"]}
+                  src={result[id]["Image 10"]}
                   alt=""
                   className={`image ${
-                    selectedImage === result[id]["10"] && `selectedImage`
+                    selectedImage === result[id]["Image 10"] && `selectedImage`
                   }`}
-                  onClick={() => handleClick(result[id]["10"])}
+                  onClick={() => handleClick(result[id]["Image 10"])}
                 />
               </div>
 
