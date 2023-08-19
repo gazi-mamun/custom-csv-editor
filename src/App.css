@@ -22,8 +22,27 @@
   align-items: center;
 }
 
+.magnify {
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  border: 3px solid rgb(0, 158, 96, 0);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.zoomController {
+  margin: 0 40px;
+  width: 40px;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 5px;
+  border-radius: 5px;
+  outline: none;
+  border-color: transparent;
+  font-size: 18px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
 .imageToMatch h2 {
-  margin-left: 80px;
   color: rgb(0, 158, 96);
 }
 
@@ -32,8 +51,8 @@
     flex-direction: column;
   }
 
-  .imageToMatch h2 {
-    margin-left: 0px;
+  .zoomController {
+    margin: 40px 0;
   }
 }
 
@@ -52,7 +71,7 @@
 
 .image {
   width: 270px;
-  height: 320px;
+  height: 300px;
   object-fit: contain;
   overflow: hidden;
   display: block;

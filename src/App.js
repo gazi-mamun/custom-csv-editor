@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Papa from "papaparse";
 import FileSaver from "file-saver";
+import ReactImageMagnify from "react-image-magnify";
 
 function App() {
   const [result, setResult] = useState([]);
@@ -11,6 +12,7 @@ function App() {
   const [match, setMatch] = useState(false);
   const [id, setId] = useState("0");
   const [completed, setCompleted] = useState(false);
+  const [zoom, setZoom] = useState(1);
 
   const [fileError, setFileError] = useState(null);
   const [fileName, setFileName] = useState("");
@@ -148,10 +150,36 @@ function App() {
           {!completed ? (
             <form className="mainContainer" onSubmit={(e) => handleSubmit(e)}>
               <div className="imageToMatch">
-                <img
+                <div className="magnify">
+                  <ReactImageMagnify
+                    {...{
+                      smallImage: {
+                        alt: `${result[id]["Image To Match"]}`,
+                        src: `${result[id]["Image To Match"]}`,
+                        width: 380,
+                        height: 400,
+                      },
+                      largeImage: {
+                        src: `${result[id]["Image To Match"]}`,
+                        width: 380 * zoom,
+                        height: 400 * zoom,
+                        enlargedImageContainerClassName: "bigImage",
+                      },
+                    }}
+                  />
+                </div>
+                {/* <img
                   src={result[id]["Image To Match"]}
                   alt=""
-                  className={`image`}
+                  className={`image bigImage`}
+                /> */}
+                <input
+                  type="number"
+                  value={zoom}
+                  min="1"
+                  max="10"
+                  onChange={(e) => setZoom(e.target.value)}
+                  className="zoomController"
                 />
                 <h2>{`Image To Match (Row Id: ${result[id]["ID"]})`}</h2>
               </div>
